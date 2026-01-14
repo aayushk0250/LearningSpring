@@ -2,6 +2,7 @@
 
 [Terms](#terms)  
 [Learning](#learning)
+- [Day 1](#day1)
 
 ---
 
@@ -11,6 +12,7 @@
 (Spring Boot learning notes go here)
 
 <a name="day1">day 1</a>
+# day1
 It's day 1 of learning Java Spring Boot, and I successfully learned:
 
 - How to use **Spring Initializr** to manage Spring Boot and Java versions and import the project into an IDE
