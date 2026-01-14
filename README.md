@@ -10,6 +10,7 @@
 
 (Spring Boot learning notes go here)
 
+<a name="day1">day 1</a>
 It's day 1 of learning Java Spring Boot, and I successfully learned:
 
 - How to use **Spring Initializr** to manage Spring Boot and Java versions and import the project into an IDE
