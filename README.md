@@ -91,32 +91,32 @@ mvn validate
 # Terms (Quick Reference)
 
 ### Dependency
-Pre-written code/library used in a project to reduce development effort.
+- Pre-written code/library used in a project to reduce development effort.
 
 ### Transitive Dependency
-When a dependency needs other dependencies, Maven downloads them automatically.
+- When a dependency needs other dependencies, Maven downloads them automatically.
 
 ### Maven
-A build automation and dependency management tool used in Java projects.
+- A build automation and dependency management tool used in Java projects.
 
 ### pom.xml
-Main configuration file of a Maven project that contains dependencies and build details.
+- Main configuration file of a Maven project that contains dependencies and build details.
 
 ### Build Lifecycle
-A fixed sequence of steps Maven follows to build a project (validate → compile → test → package → install → deploy).
+- A fixed sequence of steps Maven follows to build a project (validate → compile → test → package → install → deploy).
 
 ### Packaging
 - **JAR** – Can run directly
 - **WAR** – Needs to be deployed on an external server
 
 ### API Endpoint
-A specific URL that handles requests and returns responses.
+- A specific URL that handles requests and returns responses.
 
 ### Annotation
-Special instructions written using `@` that tell Spring how the code should behave.
+- Special instructions written using `@` that tell Spring how the code should behave.
 
 ### Spring Initializr
-A tool used to quickly create Spring Boot projects with required configurations.
+- A tool used to quickly create Spring Boot projects with required configurations.
 
 ### Embedded Server
-A server (like Tomcat) that comes built-in with Spring Boot, so no separate installation is needed.
+- A server (like Tomcat) that comes built-in with Spring Boot, so no separate installation is needed.
