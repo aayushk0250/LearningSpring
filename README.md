@@ -4,8 +4,10 @@
 - [Learning](#learning)
   - [Day 1 – Basics](#day-1--basics)
   - [Day 2 – Maven](#day-2--maven)
+  - [Day 3 - File Structure](#day-3--file-structure)
 - [Terms](#terms)
 
+---
 ---
 <a name="learning"></a>
 # Learning
@@ -23,21 +25,17 @@
 
 ### Day 2 – Maven
 
-#### What is Maven?
+#### 1. What is Maven?
 Maven is a **build automation** and **dependency management** tool used in Java projects.
 
----
-
-#### Build Automation (What Maven does automatically)
+#### 2. Build Automation (What Maven does automatically)
 - Compiles source code
 - Runs test cases
 - Packages the application (JAR / WAR)
 - Can install or deploy the project
 - Follows a fixed build structure so builds are consistent
 
----
-
-#### Maven Build Life Cycle
+#### 3. Maven Build Life Cycle
 Main build phases:
 - **validate** – checks if project structure is correct
 - **compile** – compiles source code
@@ -47,20 +45,17 @@ Main build phases:
 - **install** – installs build into local repository
 - **deploy** – deploys build to remote repository
 
----
-
-#### Dependency Management
+#### 4. Dependency Management
 - Maven downloads required libraries automatically
 - Dependency details are written inside **pom.xml**
 - Dependencies are stored in local `.m2` repository
 - Maven also downloads required sub-dependencies automatically
 
-**Transitive Dependency (1 line):**  
+** Transitive Dependency:**  
 When one dependency needs other dependencies, Maven downloads them automatically without us adding them manually.
 
----
 
-#### pom.xml file
+#### 6. pom.xml file
 - Main configuration file of a Maven project
 - Contains:
   - Project info (name, version)
@@ -68,21 +63,61 @@ When one dependency needs other dependencies, Maven downloads them automatically
   - Build configuration
 - Maven reads this file to build the project
 
----
-
-#### mvn vs mvnw
+#### 7. mvn vs mvnw
 - `mvn` → Uses Maven installed on the system
 - `./mvnw` → Uses **Maven Wrapper** (project-specific Maven version)
 
 👉 Both do the same job, but `mvnw` ensures the correct Maven version for the project.
 
----
-
-#### Common Commands
+#### 8. Common Commands
 ```bash
 mvn validate
 ./mvnw validate
 ```
+
+---
+
+### Day 3 – File Structure
+
+#### Spring Boot Project File Structure
+
+1. **.idea**
+   - IDE-specific files (created by IntelliJ IDEA)
+   - Not important for application logic
+
+2. **mvn / mvnw / mvnw.cmd**
+   - Used to run Maven commands  
+   - `mvn` → uses Maven installed on the system  
+   - `./mvnw` or `mvnw.cmd` → uses project-specific Maven (Maven Wrapper)
+
+3. **src**
+   - **main**
+     - **java ** → contains application Java code  
+     - **resources ** → contains configuration files (like `application.properties`) and static files
+   - **test**
+     - Contains test code for the application
+
+4. **target**
+   - Created after running:
+     - `mvn package` (if Maven is installed)
+     - `./mvnw package` (if using Maven Wrapper)
+   - Contains generated JAR files:
+     - **.jar.original**
+       - Contains only compiled Java code
+     - **FAT JAR (.jar)**
+       - Contains compiled Java code + all required dependencies
+       - Used to run the application
+
+   👉 Run the application using:
+   ```bash
+   java -jar ./target/project-name-version-SNAPSHOT.jar
+   ```
+5. **pom.xml**
+  - Main Maven configuration file
+  - Contains:
+    - Dependencies
+    - Plugins
+    - Project information
 
 
 ---
@@ -90,24 +125,11 @@ mvn validate
 <a name="terms"></a>
 # Terms (Quick Reference)
 
-### Dependency
-- Pre-written code/library used in a project to reduce development effort.
+### Spring Initializr
+- A tool used to quickly create Spring Boot projects with required setup.
 
-### Transitive Dependency
-- When a dependency needs other dependencies, Maven downloads them automatically.
-
-### Maven
-- A build automation and dependency management tool used in Java projects.
-
-### pom.xml
-- Main configuration file of a Maven project that contains dependencies and build details.
-
-### Build Lifecycle
-- A fixed sequence of steps Maven follows to build a project (validate → compile → test → package → install → deploy).
-
-### Packaging
-- **JAR** – Can run directly
-- **WAR** – Needs to be deployed on an external server
+### Embedded Server
+- A built-in server (like Tomcat) that comes with Spring Boot, so no separate server installation is needed.
 
 ### API Endpoint
 - A specific URL that handles requests and returns responses.
@@ -115,8 +137,35 @@ mvn validate
 ### Annotation
 - Special instructions written using `@` that tell Spring how the code should behave.
 
-### Spring Initializr
-- A tool used to quickly create Spring Boot projects with required configurations.
+### Maven
+- A build automation and dependency management tool used in Java projects.
 
-### Embedded Server
-- A server (like Tomcat) that comes built-in with Spring Boot, so no separate installation is needed.
+### Build Lifecycle
+- A fixed set of steps Maven follows to build a project  
+  (validate → compile → test → package → install → deploy).
+
+### pom.xml
+- The main configuration file of a Maven project.
+- Contains dependencies, plugins, and project details.
+
+### Dependency
+- Pre-written code or library used in a project to save development time.
+
+### Transitive Dependency
+- When one dependency needs other dependencies, Maven downloads them automatically.
+
+### Packaging
+- **JAR** – Can run directly using Java.
+- **WAR** – Needs to be deployed on an external server.
+
+### FAT JAR
+- A JAR file that contains:
+  - Compiled Java code
+  - All required dependencies.
+- Used to run Spring Boot applications directly.
+
+### Repackaging
+- Process where:
+  - Maven first creates `.jar.original` (only compiled code)
+  - A plugin converts it into a **FAT JAR**
+- Happens automatically during `mvn package`.
