@@ -1,5 +1,17 @@
 # Spring Boot Learning Notes
-
+**Why do we need Spring Boot when Spring already exists?**
+- Spring Boot is built on top of Spring to make Spring development easier and faster. It requires:
+  1. **Less configuration** :
+    - Spring requires a lot of manual configuration (XML or Java config).
+    - Spring Boot automates most configurations using sensible defaults.
+    - This reduces boilerplate code and setup time.
+  3. **No external server needed** : 
+    - Spring applications usually need an external server (like Tomcat) to run.
+    - Spring Boot comes with an embedded server (Tomcat by default).
+    - So, a Spring Boot app can run directly using:
+    ```
+    java -jar app.jar
+    ```
 ## Table of Contents
 - [Learning](#learning)
   - [Day 1 – Basics](#day-1--basics)
