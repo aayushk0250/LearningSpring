@@ -17,6 +17,7 @@
   - [Day 1 – Basics](#day-1--basics)
   - [Day 2 – Maven](#day-2--maven)
   - [Day 3 - File Structure](#day-3--file-structure)
+  - [Day 4 - Classes And Annotations](#day-4--classes-and-annotations)
 - [Terms](#terms)
 
 ---
@@ -104,8 +105,8 @@ mvn validate
 
 3. **src**
    - **main**
-     - **java ** → contains application Java code  
-     - **resources ** → contains configuration files (like `application.properties`) and static files
+     - **java** → contains application Java code  
+     - **resources** → contains configuration files (like `application.properties`) and static files
    - **test**
      - Contains test code for the application
 
@@ -133,7 +134,68 @@ mvn validate
 
 
 ---
+### Day 4 – Classes And Annotations
+
+#### @SpringBootApplication
+- Main entry point of Spring Boot application
+- Used only once
+- Combines:
+  - @Configuration
+  - @EnableAutoConfiguration
+  - @ComponentScan
+
+```java
+@SpringBootApplication
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+}
+```
+#### IOC & Dependency Injection
+- Spring creates and manages objects (beans)
+- Objects are injected automatically
+
+```java
+@Service
+public class UserService {
+}
+```
+
+```java
+@RestController
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+}
+```
+
+
+#### Common Annotations
+
+```java
+@Component        // Generic class
+@Service          // Business logic
+@Repository       // Database layer
+@Controller       // MVC Controller
+@RestController   // REST APIs
+```
+
+#### Auto Configuration
+- Spring auto-configures based on dependencies and properties
+
+```java
+@EnableAutoConfiguration
+public class DemoApplication {
+}
+```
+
+
+
 ---
+---
+
 <a name="terms"></a>
 # Terms (Quick Reference)
 
@@ -172,7 +234,7 @@ mvn validate
 
 ### FAT JAR
 - A JAR file that contains:
-  - Compiled Java code
+  - Compiled Java codeshort
   - All required dependencies.
 - Used to run Spring Boot applications directly.
 
@@ -181,3 +243,13 @@ mvn validate
   - Maven first creates `.jar.original` (only compiled code)
   - A plugin converts it into a **FAT JAR**
 - Happens automatically during `mvn package`.
+
+### IOC (Inversion of Control)
+- control of objection creation is inverted from user to the spring
+- Spring creates and manages objects
+- Objects are called **beans**
+
+### Dependency Injection
+- Dependency Injection is a technique where Spring provides the required object to a class instead of the class creating it itself.
+- Reduces dependency between classes
+
