@@ -157,12 +157,6 @@ public class DemoApplication {
 - Objects are injected automatically
 
 ```java
-@Service
-public class UserService {
-}
-```
-
-```java
 @RestController
 public class UserController {
 
