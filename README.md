@@ -64,7 +64,7 @@ Main build phases:
 - Dependencies are stored in local `.m2` repository
 - Maven also downloads required sub-dependencies automatically
 
-** Transitive Dependency:**  
+**Transitive Dependency:**  
 When one dependency needs other dependencies, Maven downloads them automatically without us adding them manually.
 
 
@@ -140,9 +140,10 @@ mvn validate
 - Main entry point of Spring Boot application
 - Used only once
 - Combines:
-  - @Configuration
-  - @EnableAutoConfiguration
-  - @ComponentScan
+  - **@Configuration** – Marks the class as a configuration class where beans can be defined  
+  - **@EnableAutoConfiguration** – Automatically configures the application based on dependencies  
+  - **@ComponentScan** – Scans packages to detect and register Spring components as beans
+
 
 ```java
 @SpringBootApplication
