@@ -18,6 +18,7 @@
   - [Day 2 – Maven](#day-2--maven)
   - [Day 3 - File Structure](#day-3--file-structure)
   - [Day 4 - Classes And Annotations](#day-4--classes-and-annotations)
+  - [Day 5 – REST API](#day-5--rest-api)
 - [Terms](#terms)
 
 ---
@@ -186,6 +187,13 @@ public class DemoApplication {
 }
 ```
 
+---
+### Day 5 – REST API (REpresentational State Transfer)
+- When we access a URL, we send an HTTP request.
+- **A collection of such HTTP requests designed to exchange data between client and server is called a REST API.**
+- client and server in a representation, where they can transfer states.
+- Rest is basically URL + HTTP (Get/Post.Put/Delete)
+- We access a url, by making http requests. Which combines and called rest api
 
 
 ---
@@ -248,3 +256,8 @@ public class DemoApplication {
 - Dependency Injection is a technique where Spring provides the required object to a class instead of the class creating it itself.
 - Reduces dependency between classes
 
+### Controller:
+- Special types of class/Components(since their beans will be made anyways), that are used to handle the HTTP requests.
+
+### POJO (Plain Old Java Class):
+- A POJO is a normal Java class that is not forced to extend or implement any special framework class or interface. It contains just fields, constructors, getters/setters, and methods
