@@ -188,7 +188,8 @@ public class DemoApplication {
 ```
 
 ---
-### Day 5 – REST API (REpresentational State Transfer)
+### Day 5 – REST API
+**(REpresentational State Transfer)**
 - When we access a URL, we send an HTTP request.
 - **A collection of such HTTP requests designed to exchange data between client and server is called a REST API.**
 - client and server in a representation, where they can transfer states.
