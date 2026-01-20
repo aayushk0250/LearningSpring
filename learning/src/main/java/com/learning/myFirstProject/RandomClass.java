@@ -17,7 +17,7 @@ public class RandomClass {
 
     @GetMapping("profile")
     public String Cur() {
-        return tep.fun();
+        return tep.heyJava();
     }
 }
 
