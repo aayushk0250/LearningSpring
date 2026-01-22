@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class Journals {
     private Long id;
     private String content;
-    private String owner;
+    private String title;
 
     public Long getId() {
         return id;
@@ -25,11 +25,11 @@ public class Journals {
         this.content = content;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getTitle() {
+        return title;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public void setTitle(String owner) {
+        this.title = owner;
     }
 }
