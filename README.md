@@ -59,7 +59,7 @@ Main build phases:
 - **install** – installs build into local repository
 - **deploy** – deploys build to remote repository
 
-#### 4. Dependency Management
+#### 5. Dependency Management
 - Maven downloads required libraries automatically
 - Dependency details are written inside **pom.xml**
 - Dependencies are stored in local `.m2` repository
@@ -196,8 +196,90 @@ public class DemoApplication {
 - Rest is basically URL + HTTP (Get/Post.Put/Delete)
 - We access a url, by making http requests. Which combines and called rest api
 
+---
+
+#### Controller
+- Controller is a special type of class/component
+- Spring automatically creates its bean
+- Used to handle incoming HTTP requests
+
+Example:
+```java
+@RestController  
+@RequestMapping("/journal")  
+public class JournalController { }
+```
+---
+
+#### POJO
+- POJO stands for Plain Old Java Object
+- Simple Java class used to represent data
+- Contains fields, getters, and setters
+
+Example:
+```java
+public class Journal {  
+    private Long id;  
+    private String content;  
+}
+```
 
 ---
+
+#### HTTP Method Annotations
+
+1. @GetMapping
+- Used to read/fetch data
+- Executes logic and returns data when the endpoint is hit
+
+Function format:
+```java
+@GetMapping("/endpoint")  
+public ReturnType methodName() { }
+```
+---
+
+2. @PostMapping
+- Used to create new data
+- @RequestBody converts incoming JSON into a Java object
+- In Postman: Body → raw → JSON
+
+Function format:
+```java
+@PostMapping("/endpoint")  
+public ReturnType methodName(@RequestBody ClassName obj) { }
+```
+---
+
+3. @PutMapping
+- Used to update existing data
+- @PathVariable reads data from URL
+- @RequestBody updates the existing object with new data
+
+Function format:
+```java
+@PutMapping("/endpoint/{id}")  
+public ReturnType methodName(@PathVariable Type id, @RequestBody ClassName obj) { }
+```
+
+---
+
+4. @DeleteMapping
+- Used to delete data
+- Specifies the path variable to remove data from storage (currently a HashMap)
+
+Function format:
+```java
+@DeleteMapping("/endpoint/{id}")  
+public ReturnType methodName(@PathVariable Type id) { }
+```
+
+---
+<br>
+
+---
+<br>
+
 ---
 
 <a name="terms"></a>
@@ -262,3 +344,8 @@ public class DemoApplication {
 
 ### POJO (Plain Old Java Class):
 - A POJO is a normal Java class that is not forced to extend or implement any special framework class or interface. It contains just fields, constructors, getters/setters, and methods
+
+#### Mojo (Maven)
+- Mojo is a Java class that represents a single executable task (goal) in a Maven plugin
+- One Mojo = one task in Maven
+- Mojo is NOT the same as POJO
