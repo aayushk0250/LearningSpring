@@ -145,47 +145,28 @@ mvn validate
   - **@Configuration** – Marks the class as a configuration class where beans can be defined  
   - **@EnableAutoConfiguration** – Automatically configures the application based on dependencies  
   - **@ComponentScan** – Scans packages to detect and register Spring components as beans
+`SpringBootApplication`
 
-
-```java
-@SpringBootApplication
-public class DemoApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
-}
-```
 #### IOC & Dependency Injection
 - Spring creates and manages objects (beans)
 - Objects are injected automatically
 
-```java
-@RestController
-public class UserController {
-
-    @Autowired
-    private UserService userService;
-}
+```
+@Autowired    // necessary for IOC, i.e, dpring creating object of a bean (class)
+private UserService userService;
 ```
 
 
 #### Common Annotations
 
-```java
-@Component        // Generic class
-@Service          // Business logic
-@Repository       // Database layer
-@Controller       // MVC Controller
-@RestController   // REST APIs
-```
+`@Component // Generic class      @RestController // REST APIs`
 
 #### Auto Configuration
 - Spring auto-configures based on dependencies and properties
 
 ```java
 @EnableAutoConfiguration
-public class DemoApplication {
-}
+public class DemoApplication {}
 ```
 
 ---
@@ -217,13 +198,6 @@ public class JournalController { }
 - Simple Java class used to represent data
 - Contains fields, getters, and setters
 
-Example:
-```java
-public class Journal {  
-    private Long id;  
-    private String content;  
-}
-```
 
 ---
 
