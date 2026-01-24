@@ -19,6 +19,7 @@
   - [Day 3 - File Structure](#day-3--file-structure)
   - [Day 4 - Classes And Annotations](#day-4--classes-and-annotations)
   - [Day 5 – REST API](#day-5--rest-api)
+  - [Day 6 – MongoDB Basics](#day-6--mongodb-basics)
 - [Terms](#terms)
 
 ---
@@ -273,6 +274,62 @@ Function format:
 @DeleteMapping("/endpoint/{id}")  
 public ReturnType methodName(@PathVariable Type id) { }
 ```
+---
+
+### Day 6 – MongoDB Basics
+
+#### MySQL vs MongoDB
+- MongoDB is a NoSQL, document-based database
+- It stores data in a JSON-like format (BSON)
+
+| MySQL            | MongoDB              |
+|------------------|----------------------|
+| Table            | Collection           |
+| Rows & Columns   | Documents & Fields   |
+
+#### Important Note
+- When a document is created in MongoDB, it automatically assigns a unique **_id** to each document.
+
+#### MongoDB Using Terminal
+
+##### Check if MongoDB is Working
+`
+mongosh
+`
+
+##### Show Existing Databases
+`
+show dbs
+`
+
+##### Create / Switch to a Database
+`
+use school
+`
+
+##### Show Collections (Similar to Tables)
+`
+show collections
+`
+
+##### Insert Documents (Creates Collection Automatically)
+`
+db.students.insertOne({ "name": "Ayush", "age": 22 })
+`
+
+`
+db.students.insertOne({ "name": "Rahul", "age": 20 })
+`
+
+##### Find a Document
+`
+db.students.find({ "name": "Ayush" })
+`
+
+##### Delete a Document
+`
+db.students.deleteOne({ "name": "Rahul" })
+`
 
 ---
 <br>
