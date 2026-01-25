@@ -20,6 +20,7 @@
   - [Day 4 - Classes And Annotations](#day-4--classes-and-annotations)
   - [Day 5 – REST API](#day-5--rest-api)
   - [Day 6 – MongoDB Basics](#day-6--mongodb-basics)
+  - [Day 7 – Dive Into DBs](#day-7--dive-into-dbs)
 - [Terms](#terms)
 
 ---
@@ -304,6 +305,65 @@ db.students.find({ "name": "Ayush" })
 `
 db.students.deleteOne({ "name": "Rahul" })
 `
+
+---
+
+### Day 7 – Dive Into DBs
+
+#### SQL vs NoSQL
+
+| SQL                          | NoSQL                          |
+|------------------------------|--------------------------------|
+| Structured data              | Unstructured / Semi-structured |
+| Rows & Columns               | Collections & Documents        |
+| Predefined schema            | No predefined schema           |
+| Strong transaction support   | High scalability               |
+| Best for relational data     | Best for large & flexible data |
+| Eg: MySQL                    | Eg: MongoDB                    |
+
+
+#### ORM (Object Relational Mapping)
+- A technique to map Java objects to Relational Database tables  
+- Allows us to work with DB easily using OOP concepts  
+- Maps Java classes to DB tables  
+- ORM frameworks like Hibernate map fields in a Java class to DB table columns  
+- Makes insert / update / retrieve / delete operations easier  
+
+
+#### JPA (Java Persistence API)
+- Provides interfaces and annotations to:
+  - Save, Update, Retrieve, Delete data from Java objects  
+- A set of rules/specifications to achieve ORM  
+- Uses ORM tools like Hibernate  
+
+#### Spring Data JPA
+- Built on top of JPA (Java Persistence API)  
+- Simplifies working with JPA using high-level abstractions  
+- Still requires JPA implementations like: Hibernate, EclipseLink to handle actual database interactions  
+
+#### Why JPA Is Not Used With MongoDB?
+- JPA works only with SQL databases  
+- SQL databases require predefined schemas and rows & columns  
+- MongoDB is a NoSQL database with document-based storage  
+- Due to different data models and storage structures, JPA is not used with MongoDB  
+
+
+#### Spring Data MongoDB
+- MongoDB is a NoSQL database, so it does not support traditional JPA  
+- Spring Data MongoDB acts as the persistence provider for MongoDB  
+- Provides abstractions and implementations to work with MongoDB in Spring applications  
+
+
+#### Ways to Interact With Database
+
+
+##### 1. Query Method DSL
+- Simple way to create queries using method naming conventions  
+- Best for simple and readable queries  
+
+##### 2. Criteria API
+- Used to build complex and dynamic queries  
+- Programmatic and flexible approach  
 
 ---
 <br>
