@@ -16,5 +16,9 @@ public class JournalEntryController {
         jeService.saveEntry(jEntry);
         return true;
     }
+    @GetMapping("show-all")
+    public boolean showAll() {
+        return true;
+    }
 
 }
