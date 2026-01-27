@@ -14,13 +14,14 @@
     ```
 ## Table of Contents
 - [Learning](#learning)
-  - [Day 1 – Basics](#day-1--basics)
-  - [Day 2 – Maven](#day-2--maven)
-  - [Day 3 - File Structure](#day-3--file-structure)
-  - [Day 4 - Classes And Annotations](#day-4--classes-and-annotations)
-  - [Day 5 – REST API](#day-5--rest-api)
-  - [Day 6 – MongoDB Basics](#day-6--mongodb-basics)
-  - [Day 7 – Dive Into DBs](#day-7--dive-into-dbs)
+  - [1 – Basics](#1--basics)
+  - [2 – Maven](#2--maven)
+  - [3 - File Structure](#3--file-structure)
+  - [4 - Classes And Annotations](#4--classes-and-annotations)
+  - [5 – REST API](#5--rest-api)
+  - [6 – MongoDB Basics](#6--mongodb-basics)
+  - [7 – Dive Into DBs](#7--dive-into-dbs)
+  - [8 – MongoDb Integration](#8--mongodb-integration)
 - [Terms](#terms)
 
 ---
@@ -28,7 +29,7 @@
 <a name="learning"></a>
 # Learning
 
-### Day 1 – Basics
+### 1 – Basics
 - Used **Spring Initializr** to create a Spring Boot project and manage Java & Spring Boot versions
 - Understood basic project execution flow:
   - Application starts → JVM assigns a **PID (Process ID)**
@@ -39,7 +40,7 @@
 
 ---
 
-### Day 2 – Maven
+### 2 – Maven
 
 #### 1. What is Maven?
 Maven is a **build automation** and **dependency management** tool used in Java projects.
@@ -93,7 +94,7 @@ mvn validate
 
 ---
 
-### Day 3 – File Structure
+### 3 – File Structure
 
 #### Spring Boot Project File Structure
 
@@ -137,7 +138,7 @@ mvn validate
 
 
 ---
-### Day 4 – Classes And Annotations
+### 4 – Classes And Annotations
 
 #### @SpringBootApplication
 - Main entry point of Spring Boot application
@@ -171,7 +172,7 @@ public class DemoApplication {}
 ```
 
 ---
-### Day 5 – REST API
+### 5 – REST API
 **(REpresentational State Transfer)**
 - When we access a URL, we send an HTTP request.
 - **A collection of such HTTP requests designed to exchange data between client and server is called a REST API.**
@@ -251,7 +252,7 @@ public ReturnType methodName(@PathVariable Type id) { }
 ```
 ---
 
-### Day 6 – MongoDB Basics
+### 6 – MongoDB Basics
 
 #### MySQL vs MongoDB
 - MongoDB is a NoSQL, document-based database
@@ -308,7 +309,7 @@ db.students.deleteOne({ "name": "Rahul" })
 
 ---
 
-### Day 7 – Dive Into DBs
+### 7 – Dive Into DBs
 
 #### SQL vs NoSQL
 
@@ -364,6 +365,37 @@ db.students.deleteOne({ "name": "Rahul" })
 ##### 2. Criteria API
 - Used to build complex and dynamic queries  
 - Programmatic and flexible approach  
+
+---
+
+### 8 – MongoDB Integration
+
+#### 1. What is MongoDB Integration?
+MongoDB integration means connecting a Spring Boot application with **MongoDB (NoSQL database)** to store, retrieve, update, and delete data using repositories.
+
+#### 2. Best Practice: Layered Architecture
+
+##### Controllers
+- Handle HTTP requests (GET, POST, PUT, DELETE)
+- Validate basic input and authentication
+- Convert service responses into HTTP responses
+- Should NOT contain business logic
+
+##### Services
+- Contain business logic and rules
+- Act as a bridge between Controller and Repository
+- Can coordinate multiple repositories or external APIs
+- Should be framework-agnostic where possible
+
+##### Repositories
+- Handle only database-related operations
+- Directly interact with MongoDB
+- No business logic should be written here
+
+#### 3. Flow of MongoDB Integration
+Client → Controller → Service → Repository → MongoDB  
+MongoDB → Repository → Service → Controller → Client
+
 
 ---
 <br>
