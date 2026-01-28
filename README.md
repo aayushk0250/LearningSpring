@@ -472,3 +472,9 @@ MongoDB → Repository → Service → Controller → Client
 - Mojo is a Java class that represents a single executable task (goal) in a Maven plugin
 - One Mojo = one task in Maven
 - Mojo is NOT the same as POJO
+
+### MongoDB:
+- MongoDB is a NoSQL, document-based database that stores data in flexible, JSON-like documents instead of tables.
+
+### ORM (Object Relational Mapping):
+- ORM is a technique that maps Java objects to database tables, allowing developers to interact with the database using objects instead of SQL.
