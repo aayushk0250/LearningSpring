@@ -478,3 +478,12 @@ MongoDB → Repository → Service → Controller → Client
 
 ### ORM (Object Relational Mapping):
 - ORM is a technique that maps Java objects to database tables, allowing developers to interact with the database using objects instead of SQL.
+
+
+#### JPA (Java Persistence API)
+- A set of rules/specifications to achieve ORM  
+- Uses ORM tools like Hibernate
+
+### Spring data mongodb = JPA for for MongoDB
+-  Spring data mongodb provides us functionaality to perform crud easily with mongodb
+-  Spring Data MongoDB acts as the persistence provider for MongoDB 
