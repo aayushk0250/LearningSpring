@@ -11,3 +11,9 @@ public class RestApiApplication {
 	}
 
 }
+
+
+// controller me hoga endpoints
+// services me hoga logic
+// repo -> db se query chalayga, dusre class extend kr ke (mongoRepository)
+//isley controller -- (calls) --> services -- (calls) --> repo (give access to use data mongodb)
