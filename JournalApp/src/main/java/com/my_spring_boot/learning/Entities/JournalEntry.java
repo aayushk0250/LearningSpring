@@ -11,6 +11,9 @@ import java.util.Date;
 // Document asks spring that below class entity is mapped to a mongodb collection
 // below class is an instance of a document (row) in the mongodb
 
+
+// mapping POJO (JournalEntry) with a mongodb collection (journal_entries)
+// 1 instance of this class = 1 document of collection
 @Document(collection = "journal_entries")
 public class JournalEntry {
     @Id // unique key

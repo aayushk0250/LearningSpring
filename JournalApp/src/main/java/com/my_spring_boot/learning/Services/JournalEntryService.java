@@ -14,4 +14,9 @@ public class JournalEntryService {
     public void saveEntry(JournalEntry jEntry) {
         jeRepo.save(jEntry);
     }
+
+    public void updateCur (String id, JournalEntry j) {
+        j.setId(id);
+        jeRepo.save(j);
+    }
 }

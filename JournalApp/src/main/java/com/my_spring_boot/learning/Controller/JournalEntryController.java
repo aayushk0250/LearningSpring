@@ -22,4 +22,9 @@ public class JournalEntryController {
         return true;
     }
 
+    @PostMapping("update/{id}")
+    public void postUpdate(@PathVariable String id, @RequestBody JournalEntry j) {
+        jeService.updateCur(id, j);
+    }
+
 }
