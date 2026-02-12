@@ -1,27 +1,12 @@
 package com.my_spring_boot.learning.Entities;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.Date;
 
-// I'm a pojo: Plain Old Java Object: made for specific purpose and do only 1 task, i.e, here setting Journal Entries
-
-// ORM ref - mapping of class entity to the mongodb collection and 1 class = 1 document
-// Document asks spring that below class entity is mapped to a mongodb collection
-// below class is an instance of a document (row) in the mongodb
-
-
-// mapping POJO (JournalEntry) with a mongodb collection (journal_entries)
-// 1 instance of this class = 1 document of collection
-@Document(collection = "journal_entries")
 public class JournalEntry {
-    @Id // unique key
-    private String id;
-    private String title;
-    private String content;
-    private Date date;
-
+    String id;
+    String title;
+    String content;
+    Date date;
 
     public String getId() {
         return id;

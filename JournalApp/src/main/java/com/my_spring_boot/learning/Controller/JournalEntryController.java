@@ -1,43 +1,24 @@
 package com.my_spring_boot.learning.Controller;
+
 import com.my_spring_boot.learning.Entities.JournalEntry;
 import com.my_spring_boot.learning.Services.JournalEntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-
 
 @RestController
-@RequestMapping("journal")
+@RequestMapping("/journal")
 public class JournalEntryController {
     @Autowired
-    private JournalEntryService jeService;
+    public JournalEntryService jes;
 
-    @PostMapping("new")
-    public boolean createEntry(@RequestBody JournalEntry jEntry) {
-        jeService.saveEntry(jEntry);
-        return true;
+    @PostMapping
+    public boolean controllerPost (@RequestBody JournalEntry js) {
+        return jes.sPost(js);
     }
-    @PostMapping("update/{id}")
-    public void postUpdate(@PathVariable String id, @RequestBody JournalEntry j) {
-        jeService.updateCur(id, j);
+    @GetMapping
+    public List<JournalEntry> controllerGet () {
+        return jes.sGet();
     }
-
-    @GetMapping("show-all")
-    public List<JournalEntry> showAll() {
-        return jeService.getAllEntries();
-    }
-
-    @GetMapping("show/{id}")
-    public Optional<JournalEntry> showById(@PathVariable String id) {
-        return jeService.getEntryById(id);
-    }
-
-    @DeleteMapping("delete/{id}")
-    public boolean deleteById(@PathVariable String id) {
-        jeService.deleteEntryById(id);
-        return true;
-    }
-
 }
