@@ -17,6 +17,7 @@ public class JournalEntryController {
     public boolean controllerPost (@RequestBody JournalEntry js) {
         return jes.sPost(js);
     }
+
     @GetMapping
     public List<JournalEntry> controllerGet () {
         return jes.sGet();
