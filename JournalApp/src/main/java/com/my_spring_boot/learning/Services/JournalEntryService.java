@@ -19,4 +19,13 @@ public class JournalEntryService {
     public List<JournalEntry> sGet() {
         return jeRepo.findAll();
     }
+
+    public boolean sPut(String Id, JournalEntry je) {
+        je.setId(Id);
+        jeRepo.save(je);
+        return true;
+    }
+    public void sDel(String id) {
+        jeRepo.deleteById(id);
+    }
 }
