@@ -2,10 +2,12 @@ package com.my_spring_boot.learning.Services;
 import com.my_spring_boot.learning.Entities.JournalEntry;
 import com.my_spring_boot.learning.Repositories.JournalEntryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JournalEntryService {
@@ -18,6 +20,9 @@ public class JournalEntryService {
     }
     public List<JournalEntry> sGet() {
         return jeRepo.findAll();
+    }
+    public Optional<JournalEntry> sGetById(String s) {
+        return jeRepo.findById(s);
     }
 
     public boolean sPut(String Id, JournalEntry je) {

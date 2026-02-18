@@ -1,9 +1,12 @@
 package com.my_spring_boot.learning.Controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import com.my_spring_boot.learning.Entities.JournalEntry;
 import com.my_spring_boot.learning.Services.JournalEntryService;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.data.annotation.Id;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -21,6 +24,10 @@ public class JournalEntryController {
     @GetMapping
     public List<JournalEntry> controllerGet () {
         return jes.sGet();
+    }
+    @GetMapping("/{id}")
+    public Optional<JournalEntry> controllerGetById(@PathVariable String id) {
+        return jes.sGetById(id);
     }
 
     @PutMapping("/{curId}")
