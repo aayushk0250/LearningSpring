@@ -21,8 +21,8 @@ public class JournalEntryService {
     public List<JournalEntry> sGet() {
         return jeRepo.findAll();
     }
-    public Optional<JournalEntry> sGetById(String s) {
-        return jeRepo.findById(s);
+    public JournalEntry sGetById(String s) {
+        return jeRepo.findById(s).orElse(null);
     }
 
     public boolean sPut(String Id, JournalEntry je) {
