@@ -54,7 +54,7 @@ public class JournalEntryController {
     public ResponseEntity<?> controllerPut(@PathVariable String curId, @RequestBody JournalEntry updatedJournal) {
         JournalEntry j = jes.sGetById(curId);
         if(j != null) {
-            return new ResponseEntity<>(j, HttpStatus.OK);
+            return new ResponseEntity<>(j, HttpStatus.ACCEPTED);
         }
         return new ResponseEntity<>(updatedJournal, HttpStatus.NOT_FOUND);
     }
