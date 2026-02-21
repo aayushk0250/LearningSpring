@@ -22,6 +22,7 @@
   - [6 – MongoDB Basics](#6--mongodb-basics)
   - [7 – Dive Into DBs](#7--dive-into-dbs)
   - [8 – MongoDb Integration](#8--mongodb-integration)
+  - [9 - Lambok](#9--lambok)
 - [Terms](#terms)
 
 ---
@@ -396,6 +397,13 @@ MongoDB integration means connecting a Spring Boot application with **MongoDB (N
 Client → Controller → Service → Repository → MongoDB  
 MongoDB → Repository → Service → Controller → Client
 
+
+---
+
+### 9 – Lambok
+- They aim to reduce the boilerplate code that developers have to write
+  -- such as: getters, setters, constructors and many more
+- Lambok achieves this by generatin code during compilation, based on annotations we add to our java classes
 
 ---
 <br>
