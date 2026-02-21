@@ -52,9 +52,10 @@ public class JournalEntryController {
 
     @PutMapping("/{curId}")
     public ResponseEntity<?> controllerPut(@PathVariable String curId, @RequestBody JournalEntry updatedJournal) {
-        JournalEntry j = jes.sGetById(curId);
+        jes.sPut(curId, updatedJournal);
+        JournalEntry j = updatedJournal;
         if(j != null) {
-            return new ResponseEntity<>(j, HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(updatedJournal, HttpStatus.ACCEPTED);
         }
         return new ResponseEntity<>(updatedJournal, HttpStatus.NOT_FOUND);
     }
