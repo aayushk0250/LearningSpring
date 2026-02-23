@@ -20,7 +20,7 @@ public class User {
     private ObjectId id;
     // even if we put its data type string, **data mongodb** converts string to ObjectId
 
-    @Indexed(unique = true)
+    @Indexed(unique = true) // will not index it automatically, need to write it in application properties
     @NonNull
     private String useName;
 
