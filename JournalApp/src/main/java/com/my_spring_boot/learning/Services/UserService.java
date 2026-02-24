@@ -24,12 +24,16 @@ public class UserService {
         return uRepo.findById(s).orElse(null);
     }
 
-    public boolean sPut(ObjectId id, User u) {
-        u.setId(id);
+    public boolean sPut(String id, User u) {
+        ObjectId objectId = new ObjectId(id);
+        u.setId(objectId);
         uRepo.save(u);
         return true;
     }
-    public void sDel(String id) {
+
+    public boolean sDel(String id) {
+        if(!uRepo.existsById(id))   return false;
         uRepo.deleteById(id);
+        return true;
     }
 }
