@@ -22,7 +22,7 @@ public class User {
 
     @Indexed(unique = true) // will not index it automatically, need to write it in application properties
     @NonNull
-    private String useName;
+    private String userName;
 
     @NonNull
     private String password;

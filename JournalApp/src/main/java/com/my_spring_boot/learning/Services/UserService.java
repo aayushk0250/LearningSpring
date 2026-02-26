@@ -4,11 +4,12 @@ import com.my_spring_boot.learning.Entities.User;
 import com.my_spring_boot.learning.Repositories.UserRepo;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
+@Component
 public class UserService {
     @Autowired
     public UserRepo uRepo;
@@ -20,20 +21,21 @@ public class UserService {
     public List<User> sGet() {
         return uRepo.findAll();
     }
-    public User sGetById(String s) {
-        return uRepo.findById(s).orElse(null);
+    public Optional<User> sGetById(ObjectId id) {
+        return uRepo.findById(id);
     }
 
-    public boolean sPut(String id, User u) {
-        ObjectId objectId = new ObjectId(id);
-        u.setId(objectId);
+    public void sPut(ObjectId id, User u) {
+        u.setId(id);
+//        u.setPassword(u.getPassword());
         uRepo.save(u);
-        return true;
     }
 
-    public boolean sDel(String id) {
-        if(!uRepo.existsById(id))   return false;
+    public void sDel(ObjectId id) {
         uRepo.deleteById(id);
-        return true;
+    }
+
+    public User findUserByUserName(String UserName) {
+        return uRepo.findByUserName(UserName);
     }
 }
